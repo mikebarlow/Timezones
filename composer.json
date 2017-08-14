@@ -21,7 +21,10 @@
     "autoload": {
         "psr-4": {
             "Snscripts\\Timezones\\": "src"
-        }
+        },
+        "classmap": [
+            "src/Facade/Timezones.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
