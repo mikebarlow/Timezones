@@ -1,13 +1,13 @@
 {
-    "name": "phoenixbill/timezones",
+    "name": "snscripts/timezones",
     "description": "Timezone helpers to convert to and from UTC with Laravel Blade directives",
     "keywords": ["Timezone", "UTC", "Conversion", "Helpers", "Laravel", "DateTime"],
-    "homepage": "https://github.com/PhoenixBill/Timezones",
+    "homepage": "https://github.com/mikebarlow/Timezones",
     "license": "MIT",
     "authors": [
         {
             "name": "Mike Barlow",
-            "email": "info@phoenixbill.com",
+            "email": "mike@mikebarlow.co.uk",
             "role": "Developer"
         }
     ],
@@ -20,18 +20,18 @@
     },
     "autoload": {
         "psr-4": {
-            "PhoenixBill\\Timezones\\": "src"
+            "Snscripts\\Timezones\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "PhoenixBill\\Timezones\\Tests\\": "tests"
+            "Snscripts\\Timezones\\Tests\\": "tests"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "PhoenixBill\\Timezones\\TimezonesServiceProvider"
+                "Snscripts\\Timezones\\TimezonesServiceProvider"
             ]
         }
     }
