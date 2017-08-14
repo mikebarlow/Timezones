@@ -55,14 +55,8 @@ class Timezones
      * @param string $format
      * @return string
      */
-    public function convertToLocal($DateTime, $Timezone = null, $format = 'Y-m-d H:i:s')
+    public function convertToLocal($DateTime, $Timezone, $format = 'Y-m-d H:i:s')
     {
-        if (is_null($Timezone)) {
-            throw new \InvalidArgumentException(
-                '$Timezone must be defined when $DateTime is not an instance of DateTime'
-            );
-        }
-
         if (is_string($Timezone)) {
             $Timezone = new DateTimeZone($Timezone);
         }

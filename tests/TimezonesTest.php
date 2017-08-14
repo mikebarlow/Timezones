@@ -74,4 +74,65 @@ class TimezonesTests extends \PHPUnit_Framework_TestCase
         $Timezones = new Timezones;
         $Timezones->convertToUTC('2017-08-14 13:00:00', 'Foobar/Barfoo');
     }
+
+    public function testConvertToLocalCanConvertCorrectly()
+    {
+        $Timezones = new Timezones;
+
+        $this->assertSame(
+            $Timezones->convertToLocal(
+                '2017-08-14 13:00:00',
+                'Europe/London'
+            ),
+            '2017-08-14 14:00:00'
+        );
+
+        $this->assertSame(
+            $Timezones->convertToLocal(
+                new \DateTime(
+                    '2017-08-14 13:00:00',
+                    new \DateTimeZone(
+                        'UTC'
+                    )
+                ),
+                new \DateTimeZone('Europe/London')
+            ),
+            '2017-08-14 14:00:00'
+        );
+
+        $this->assertSame(
+            $Timezones->convertToLocal(
+                '2017-08-14 13:00:00',
+                'America/New_York'
+            ),
+            '2017-08-14 09:00:00'
+        );
+
+        $this->assertSame(
+            $Timezones->convertToLocal(
+                '2017-08-14 13:00:00',
+                'America/New_York',
+                'jS M Y g:ia'
+            ),
+            '14th Aug 2017 9:00am'
+        );
+    }
+
+    public function testConvertToLocalThrowsExceptionWhenInvalidTimezoneObjectGiven()
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('A valid DateTimeZone object could not be loaded');
+
+        $Timezones = new Timezones;
+        $Timezones->convertToLocal('2017-08-14 13:00:00', new \stdClass);
+    }
+
+    public function testConvertToLocalThrowsExceptionWhenInvalidTimezoneGiven()
+    {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage('DateTimeZone::__construct(): Unknown or bad timezone (Foobar/Barfoo)');
+
+        $Timezones = new Timezones;
+        $Timezones->convertToLocal('2017-08-14 13:00:00', 'Foobar/Barfoo');
+    }
 }
