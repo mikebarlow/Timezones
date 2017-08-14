@@ -47,4 +47,31 @@ class TimezonesTests extends \PHPUnit_Framework_TestCase
             '14th Aug 2017 5:00pm'
         );
     }
+
+    public function testConvertToUTCThrowsExceptionWhenNoTimezone()
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('$Timezone must be defined when $DateTime is not an instance of DateTime');
+
+        $Timezones = new Timezones;
+        $Timezones->convertToUTC('2017-08-14 13:00:00');
+    }
+
+    public function testConvertToUTCThrowsExceptionWhenInvalidTimezoneObjectGiven()
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('A valid DateTimeZone object could not be loaded');
+
+        $Timezones = new Timezones;
+        $Timezones->convertToUTC('2017-08-14 13:00:00', new \stdClass);
+    }
+
+    public function testConvertToUTCThrowsExceptionWhenInvalidTimezoneGiven()
+    {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage('DateTimeZone::__construct(): Unknown or bad timezone (Foobar/Barfoo)');
+
+        $Timezones = new Timezones;
+        $Timezones->convertToUTC('2017-08-14 13:00:00', 'Foobar/Barfoo');
+    }
 }
