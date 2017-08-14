@@ -21,13 +21,13 @@ class TimezonesTests extends \PHPUnit_Framework_TestCase
         $this->assertSame(
             $Timezones->convertToUTC(
                 new \DateTime(
-                    '2017-08-14 13:00:00',
+                    '2017-11-14 13:00:00',
                     new \DateTimeZone(
                         'Europe/London'
                     )
                 )
             ),
-            '2017-08-14 12:00:00'
+            '2017-11-14 13:00:00'
         );
 
         $this->assertSame(
@@ -90,14 +90,14 @@ class TimezonesTests extends \PHPUnit_Framework_TestCase
         $this->assertSame(
             $Timezones->convertToLocal(
                 new \DateTime(
-                    '2017-08-14 13:00:00',
+                    '2017-11-14 13:00:00',
                     new \DateTimeZone(
                         'UTC'
                     )
                 ),
                 new \DateTimeZone('Europe/London')
             ),
-            '2017-08-14 14:00:00'
+            '2017-11-14 13:00:00'
         );
 
         $this->assertSame(
