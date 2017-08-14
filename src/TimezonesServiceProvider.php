@@ -2,7 +2,7 @@
 
 namespace Snscripts\Timezones;
 
-use Illiminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
 class TimezonesServiceProvider extends ServiceProvider
