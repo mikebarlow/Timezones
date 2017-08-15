@@ -34,7 +34,7 @@ class TimezonesServiceProvider extends ServiceProvider
             function ($expression) {
                 list($DateTime, $Timezone, $format) = explode(',', $expression);
 
-                return  "<?php echo \Timezone::convertToLocal($DateTime, $Timezone, $format); ?>";
+                return  "<?php echo \Timezones::convertToLocal($DateTime, $Timezone, $format); ?>";
             }
         );
     }
