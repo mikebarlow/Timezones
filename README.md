@@ -13,9 +13,7 @@ Timezones is a PSR-2 compliant package used for easily converting dates into UTC
 
 ### Composer
 
-Timezones requires the following:
-
-* "php": ">=5.6.0"
+Timezones has no dependencies or requires for standard usage.
 
 And the following if you wish to run in dev mode and run tests.
 
