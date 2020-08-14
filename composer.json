@@ -1,5 +1,5 @@
 {
-    "name": "snscripts/timezones",
+    "name": "mbarlow/timezones",
     "description": "Timezone helpers to convert to and from UTC with Laravel Blade directives",
     "keywords": ["Timezone", "UTC", "Conversion", "Helpers", "Laravel", "DateTime"],
     "homepage": "https://github.com/mikebarlow/Timezones",
@@ -12,12 +12,12 @@
         }
     ],
     "require-dev": {
-        "phpunit/phpunit": "5.7.5",
-        "squizlabs/php_codesniffer": "~2.0"
+        "phpunit/phpunit": "^8.5",
+        "squizlabs/php_codesniffer": "^3.5"
     },
     "autoload": {
         "psr-4": {
-            "Snscripts\\Timezones\\": "src"
+            "MBarlow\\Timezones\\": "src"
         },
         "classmap": [
             "src/Facade/Timezones.php"
@@ -25,14 +25,20 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Snscripts\\Timezones\\Tests\\": "tests"
+            "MBarlow\\Timezones\\Tests\\": "tests"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Snscripts\\Timezones\\TimezonesServiceProvider"
+                "MBarlow\\Timezones\\TimezonesServiceProvider"
             ]
         }
+    },
+    "scripts": {
+        "test": [
+            "./vendor/bin/phpunit",
+            "./vendor/bin/phpcs --standard=PSR2 --ignore=src/Facade/* src"
+        ]
     }
 }

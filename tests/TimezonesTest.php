@@ -1,10 +1,11 @@
 <?php
 
-namespace Snscripts\Timezones\Tests;
+namespace Mbarlow\Timezones\Tests;
 
-use Snscripts\Timezones\Timezones;
+use MBarlow\Timezones\Timezones;
+use PHPUnit\Framework\TestCase;
 
-class TimezonesTests extends \PHPUnit_Framework_TestCase
+class TimezonesTests extends TestCase
 {
     public function testConvertToUTCCanConvertCorrectly()
     {

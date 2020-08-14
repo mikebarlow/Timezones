@@ -1,6 +1,6 @@
 <?php
 
-namespace Snscripts\Timezones;
+namespace MBarlow\Timezones;
 
 use DateTime;
 use DateTimeZone;
@@ -14,6 +14,8 @@ class Timezones
      * @param DateTimeZone|string|null $Timezone
      * @param string $format
      * @return string
+     * @throws \InvalidArgumentException
+     * @throws \Exception
      */
     public function convertToUTC($DateTime, $Timezone = null, $format = 'Y-m-d H:i:s')
     {
@@ -54,6 +56,8 @@ class Timezones
      * @param DateTimeZone|string|null $Timezone
      * @param string $format
      * @return string
+     * @throws \InvalidArgumentException
+     * @throws \Exception
      */
     public function convertToLocal($DateTime, $Timezone, $format = 'Y-m-d H:i:s')
     {

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Facade;
 
+
 class Timezones extends Facade
 {
     /**
@@ -11,6 +12,6 @@ class Timezones extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'Snscripts\Timezones\Timezones';
+        return 'MBarlow\Timezones\Timezones';
     }
 }

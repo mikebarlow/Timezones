@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit colors="true" bootstrap="vendor/autoload.php">
     <testsuites>
-        <testsuite name="SNScripts\Timezones Tests">
+        <testsuite name="MBarlow\Timezones Tests">
             <directory>tests/</directory>
         </testsuite>
     </testsuites>
@@ -10,8 +10,4 @@
             <directory suffix=".php">src/</directory>
         </whitelist>
     </filter>
-    <logging>
-        <log type="coverage-html" target="build/coverage" charset="UTF-8" yui="true" highlight="true"/>
-        <log type="coverage-text" target="php://stdout" showUncoveredFiles="false"/>
-    </logging>
 </phpunit>

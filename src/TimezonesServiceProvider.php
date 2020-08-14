@@ -1,6 +1,6 @@
 <?php
 
-namespace Snscripts\Timezones;
+namespace Mbarlow\Timezones;
 
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
@@ -17,7 +17,7 @@ class TimezonesServiceProvider extends ServiceProvider
         $this->app->bind(
             'Snscripts\Timezones\Timezones',
             function ($app) {
-                return new \Snscripts\Timezones\Timezones;
+                return new \MBarlow\Timezones\Timezones;
             }
         );
     }
