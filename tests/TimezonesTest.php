@@ -9,10 +9,10 @@ class TimezonesTests extends TestCase
 {
     public function testConvertToUTCCanConvertCorrectly()
     {
-        $Timezones = new Timezones;
+        $timezones = new Timezones;
 
         $this->assertSame(
-            $Timezones->convertToUTC(
+            $timezones->convertToUTC(
                 '2017-08-14 13:00:00',
                 'Europe/London'
             ),
@@ -20,7 +20,7 @@ class TimezonesTests extends TestCase
         );
 
         $this->assertSame(
-            $Timezones->convertToUTC(
+            $timezones->convertToUTC(
                 new \DateTime(
                     '2017-11-14 13:00:00',
                     new \DateTimeZone(
@@ -32,7 +32,7 @@ class TimezonesTests extends TestCase
         );
 
         $this->assertSame(
-            $Timezones->convertToUTC(
+            $timezones->convertToUTC(
                 '2017-08-14 13:00:00',
                 'America/New_York'
             ),
@@ -40,7 +40,7 @@ class TimezonesTests extends TestCase
         );
 
         $this->assertSame(
-            $Timezones->convertToUTC(
+            $timezones->convertToUTC(
                 '2017-08-14 13:00:00',
                 'America/New_York',
                 'jS M Y g:ia'
@@ -54,8 +54,8 @@ class TimezonesTests extends TestCase
         $this->expectException(\InvalidArgumentException::class);
         $this->expectExceptionMessage('$Timezone must be defined when $DateTime is not an instance of DateTime');
 
-        $Timezones = new Timezones;
-        $Timezones->convertToUTC('2017-08-14 13:00:00');
+        $timezones = new Timezones;
+        $timezones->convertToUTC('2017-08-14 13:00:00');
     }
 
     public function testConvertToUTCThrowsExceptionWhenInvalidTimezoneObjectGiven()
@@ -63,8 +63,8 @@ class TimezonesTests extends TestCase
         $this->expectException(\InvalidArgumentException::class);
         $this->expectExceptionMessage('A valid DateTimeZone object could not be loaded');
 
-        $Timezones = new Timezones;
-        $Timezones->convertToUTC('2017-08-14 13:00:00', new \stdClass);
+        $timezones = new Timezones;
+        $timezones->convertToUTC('2017-08-14 13:00:00', new \stdClass);
     }
 
     public function testConvertToUTCThrowsExceptionWhenInvalidTimezoneGiven()
@@ -72,16 +72,16 @@ class TimezonesTests extends TestCase
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage('DateTimeZone::__construct(): Unknown or bad timezone (Foobar/Barfoo)');
 
-        $Timezones = new Timezones;
-        $Timezones->convertToUTC('2017-08-14 13:00:00', 'Foobar/Barfoo');
+        $timezones = new Timezones;
+        $timezones->convertToUTC('2017-08-14 13:00:00', 'Foobar/Barfoo');
     }
 
     public function testConvertToLocalCanConvertCorrectly()
     {
-        $Timezones = new Timezones;
+        $timezones = new Timezones;
 
         $this->assertSame(
-            $Timezones->convertToLocal(
+            $timezones->convertToLocal(
                 '2017-08-14 13:00:00',
                 'Europe/London'
             ),
@@ -89,7 +89,7 @@ class TimezonesTests extends TestCase
         );
 
         $this->assertSame(
-            $Timezones->convertToLocal(
+            $timezones->convertToLocal(
                 new \DateTime(
                     '2017-11-14 13:00:00',
                     new \DateTimeZone(
@@ -102,7 +102,7 @@ class TimezonesTests extends TestCase
         );
 
         $this->assertSame(
-            $Timezones->convertToLocal(
+            $timezones->convertToLocal(
                 '2017-08-14 13:00:00',
                 'America/New_York'
             ),
@@ -110,7 +110,7 @@ class TimezonesTests extends TestCase
         );
 
         $this->assertSame(
-            $Timezones->convertToLocal(
+            $timezones->convertToLocal(
                 '2017-08-14 13:00:00',
                 'America/New_York',
                 'jS M Y g:ia'
@@ -124,8 +124,8 @@ class TimezonesTests extends TestCase
         $this->expectException(\InvalidArgumentException::class);
         $this->expectExceptionMessage('A valid DateTimeZone object could not be loaded');
 
-        $Timezones = new Timezones;
-        $Timezones->convertToLocal('2017-08-14 13:00:00', new \stdClass);
+        $timezones = new Timezones;
+        $timezones->convertToLocal('2017-08-14 13:00:00', new \stdClass);
     }
 
     public function testConvertToLocalThrowsExceptionWhenInvalidTimezoneGiven()
@@ -133,7 +133,7 @@ class TimezonesTests extends TestCase
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage('DateTimeZone::__construct(): Unknown or bad timezone (Foobar/Barfoo)');
 
-        $Timezones = new Timezones;
-        $Timezones->convertToLocal('2017-08-14 13:00:00', 'Foobar/Barfoo');
+        $timezones = new Timezones;
+        $timezones->convertToLocal('2017-08-14 13:00:00', 'Foobar/Barfoo');
     }
 }

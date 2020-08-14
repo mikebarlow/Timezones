@@ -15,7 +15,7 @@ class TimezonesServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(
-            'Snscripts\Timezones\Timezones',
+            'MBarlow\Timezones\Timezones',
             function ($app) {
                 return new \MBarlow\Timezones\Timezones;
             }
@@ -32,9 +32,9 @@ class TimezonesServiceProvider extends ServiceProvider
         Blade::directive(
             'displayDate',
             function ($expression) {
-                list($DateTime, $Timezone, $format) = explode(',', $expression);
+                list($dateTime, $tz, $format) = explode(',', $expression);
 
-                return  "<?php echo \Timezones::convertToLocal($DateTime, $Timezone, $format); ?>";
+                return  "<?php echo \Timezones::convertToLocal($dateTime, $tz, $format); ?>";
             }
         );
     }

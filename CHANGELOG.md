@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.0.0] - 2020-08-14
+
+* Renamed namespace and package name
+* Removed TravisCI and Implemented Github Actions
+* Improved Readme
+
 ## [1.0.1] - 2017-08-16
 
 * Removing php version requirement from composer
