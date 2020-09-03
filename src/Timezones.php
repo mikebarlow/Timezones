@@ -84,4 +84,50 @@ class Timezones
 
         return $dateTime->format($format);
     }
+
+    public function timezoneList()
+    {
+        $timezones = DateTimeZone::listIdentifiers();
+        $now = new DateTime('now');
+
+        $list = array_map(
+            function ($zone) use ($now) {
+                $timezone = new DateTimeZone($zone);
+                $offset = (int)$timezone->getOffset($now);
+                $offsetNice = gmdate('H:i', abs($offset));
+
+                list(,$location) = explode('/', $zone, 2);
+                $location = str_replace('_', ' ', $location);
+
+                $offsetDisplay = '';
+                if ($offset > 0) {
+                    $offsetDisplay = ' +' . $offsetNice;
+                } elseif ($offset < 0) {
+                    $offsetDisplay = ' -' . $offsetNice;
+                }
+
+                return [
+                    'timezone' => $zone,
+                    'offset'   => $offset,
+                    'location' => $location,
+                    'label'    => '(UTC' . $offsetDisplay . ') ' . $location,
+                ];
+            },
+            $timezones
+        );
+
+        usort(
+            $list,
+            function ($a, $b) {
+                return ($a['offset'] == $b['offset'])
+                    ? strcmp($a['location'], $b['location'])
+                    : $a['offset'] - $b['offset'];
+            }
+        );
+
+        return array_combine(
+            array_column($list, 'timezone'),
+            array_column($list, 'label')
+        );
+    }
 }
