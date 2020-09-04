@@ -164,9 +164,36 @@ class TimezonesTests extends TestCase
     public function can_return_timezone_list_as_ordered_array()
     {
         $timezones = new Timezones;
+        $list = $timezones->timezoneList('2020-09-04 09:00:00');
 
-        print_r($timezones->timezoneList());
+        $this->assertCount(426, $list);
 
-        $this->assertTrue(true);
+        $keys = array_keys($list);
+        $values = array_values($list);
+
+        $this->assertSame(
+            'Pacific/Midway',
+            $keys[0]
+        );
+
+        $this->assertSame(
+            'Pacific/Kiritimati',
+            end($keys)
+        );
+
+        $this->assertSame(
+            'Pacific/Midway',
+            $keys[0]
+        );
+
+        $this->assertSame(
+            '(UTC -11:00) Midway',
+            $values['0']
+        );
+
+        $this->assertSame(
+            '(UTC +14:00) Kiritimati',
+            end($values)
+        );
     }
 }

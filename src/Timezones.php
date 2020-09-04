@@ -85,10 +85,14 @@ class Timezones
         return $dateTime->format($format);
     }
 
-    public function timezoneList()
+    /**
+     * @param string $relativeDate
+     * @return array|false
+     */
+    public function timezoneList($relativeDate = 'now')
     {
         $timezones = DateTimeZone::listIdentifiers();
-        $now = new DateTime('now');
+        $now = new DateTime($relativeDate);
 
         $list = array_map(
             function ($zone) use ($now) {
