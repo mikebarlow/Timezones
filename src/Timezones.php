@@ -92,9 +92,6 @@ class Timezones
     public function timezoneList($relativeDate = 'now')
     {
         $timezones = DateTimeZone::listIdentifiers();
-
-        print_r($timezones);
-        die();
         $now = new DateTime($relativeDate);
 
         $list = array_map(
@@ -103,7 +100,12 @@ class Timezones
                 $offset = (int)$timezone->getOffset($now);
                 $offsetNice = gmdate('H:i', abs($offset));
 
-                list($region, $location) = explode('/', $zone, 2);
+                $location = $zone;
+
+                if (strpos($location, '/') !== false) {
+                    list($region, $location) = explode('/', $zone, 2);
+                }
+
                 $location = str_replace('_', ' ', $location);
 
                 $offsetDisplay = '';
