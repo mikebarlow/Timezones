@@ -92,6 +92,9 @@ class Timezones
     public function timezoneList($relativeDate = 'now')
     {
         $timezones = DateTimeZone::listIdentifiers();
+
+        print_r($timezones);
+        die();
         $now = new DateTime($relativeDate);
 
         $list = array_map(
