@@ -127,6 +127,49 @@ This method should be used in your "views or in your API endpoints" to transform
 
 `$format` is an optional field that defaults to standard MySQL datetime format of `YYYY-MM-DD HH:MM:SS`.
 
+### timezoneList
+
+This method can be used for API endpoints or within your templates to generate an array of formatted timezones. The generated array will return an associative array with the timezone as the key and a nice label with offset as the value.
+
+```php
+  $timezones = new \MBarlow\Timezones\Timezones;
+
+  print_r($timezones->timezoneList());
+  /*
+    Array
+    (
+        [Pacific/Midway] => (UTC -11:00) Midway
+        [Pacific/Niue] => (UTC -11:00) Niue
+        [Pacific/Pago_Pago] => (UTC -11:00) Pago Pago
+        [Pacific/Honolulu] => (UTC -10:00) Honolulu
+        [Pacific/Rarotonga] => (UTC -10:00) Rarotonga
+        [Pacific/Tahiti] => (UTC -10:00) Tahiti
+        [Pacific/Marquesas] => (UTC -09:30) Marquesas
+        [America/Adak] => (UTC -09:00) Adak
+        [Pacific/Gambier] => (UTC -09:00) Gambier
+        [America/Anchorage] => (UTC -08:00) Anchorage
+        [America/Juneau] => (UTC -08:00) Juneau
+        [America/Metlakatla] => (UTC -08:00) Metlakatla
+        [America/Nome] => (UTC -08:00) Nome
+        [Pacific/Pitcairn] => (UTC -08:00) Pitcairn
+        [America/Sitka] => (UTC -08:00) Sitka
+  
+         ....
+     )      
+   */
+```
+
+```php
+$timezones = new \MBarlow\Timezones\Timezones;
+$list = $timezones->timezoneList();
+
+echo '<select="timezone">';
+foreach ($list as $timezone => $label) {
+    echo '<option value="' . $timezone . '">' . $label .  '</option>';
+}
+echo '</select>';
+```
+
 ## Laravel Extras
 
 If you have installed the package into a Laravel application a few extra goodies are available.
