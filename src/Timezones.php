@@ -100,7 +100,7 @@ class Timezones
                 $offset = (int)$timezone->getOffset($now);
                 $offsetNice = gmdate('H:i', abs($offset));
 
-                list(,$location) = explode('/', $zone, 2);
+                list($region, $location) = explode('/', $zone, 2);
                 $location = str_replace('_', ' ', $location);
 
                 $offsetDisplay = '';
