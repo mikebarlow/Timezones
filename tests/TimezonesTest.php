@@ -166,8 +166,6 @@ class TimezonesTests extends TestCase
         $timezones = new Timezones;
         $list = $timezones->timezoneList('2020-09-04 09:00:00');
 
-        $this->assertCount(426, $list);
-
         $keys = array_keys($list);
         $values = array_values($list);
 
