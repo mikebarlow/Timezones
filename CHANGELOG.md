@@ -3,6 +3,11 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [3.0.0] - 2021-04-13
+
+* Updated PHPUnit to v9
+* Added test support for PHP8
+
 ## [2.1.0] - 2020-09-04
 
 * Added timezoneList method to return a nice formatted array of timezones 
