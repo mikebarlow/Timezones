@@ -1,5 +1,7 @@
 <?php
 
+namespace MBarlow\Timezones\Facade;
+
 use Illuminate\Support\Facades\Facade;
 
 
