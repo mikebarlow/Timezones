@@ -3,7 +3,7 @@
 [![Author](http://img.shields.io/badge/author-@mikebarlow-red.svg?style=flat-square)](https://twitter.com/mikebarlow)
 [![Latest Version](https://img.shields.io/github/release/mikebarlow/Timezones.svg?style=flat-square)](https://github.com/mikebarlow/Timezones/releases)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](https://github.com/mikebarlow/Timezones/blob/master/LICENSE)
-[![Build Status](https://img.shields.io/github/workflow/status/mikebarlow/Timezones/PHP%20Composer?style=flat-square)](https://github.com/mikebarlow/Timezones/actions)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/mikebarlow/Timezones/php.yml?branch=main&style=flat-square)](https://github.com/mikebarlow/Timezones/actions)
 
 ## Introduction
 
